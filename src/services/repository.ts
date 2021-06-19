@@ -1,4 +1,3 @@
-
 import { ServiceHandlingInterface } from '../shared/service-handling';
 
 export const repository = {
