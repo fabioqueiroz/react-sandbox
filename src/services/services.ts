@@ -1,10 +1,10 @@
 import { repository } from '../services/repository';
-import { CommentInterface } from '../components/comment/comment.model';
+import { PredictionInterface } from '../models/prediction.model';
 import { ServiceHandlingInterface } from '../shared/service-handling';
+import { Config } from '../config/config'
 
 export const services = {
     addComment: (comment: string) : Promise<ServiceHandlingInterface<string>> => {
-        return repository.post(`https://localhost:44371/MachineLearning/`, JSON.stringify(comment))
+        return repository.post(`${Config.mlservice}MachineLearning/`, JSON.stringify(comment))
     }
-
 }
