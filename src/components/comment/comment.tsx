@@ -2,7 +2,6 @@ import { FunctionComponent, ReactElement, useEffect } from "react";
 import { CommentInterface } from "./comment.model";
 import { useState, ChangeEvent } from "react";
 import { services } from "../../services/services";
-import { PredictionInterface } from "../../models/prediction.model";
 
 export const Comment: FunctionComponent<CommentInterface> =
   (): ReactElement => {
@@ -18,7 +17,6 @@ export const Comment: FunctionComponent<CommentInterface> =
         let algorithmResult = JSON.parse(result.data);
         setSentiment(algorithmResult.prediction);
         setTextInput("");
-        console.log(algorithmResult.prediction);
       });
     };
 

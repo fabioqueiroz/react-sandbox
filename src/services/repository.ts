@@ -30,7 +30,7 @@ export const repository = {
       return createResponse(400, err);
     });
 
-    const hasData = (response?.ok && response?.status != 204) ?? false;
+    const hasData = (response?.ok && response?.status !== 204) ?? false;
     const result: ServiceHandlingInterface<T> = {
       data: hasData ? await response?.json() : undefined,
       error: !hasData,
@@ -45,6 +45,8 @@ export const repository = {
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
+        //'Access-Control-Allow-Origin': 'http://localhost:3000',
+        'Origin': 'http://localhost:3000',
         Accept: 'application/json',
         //authorization: `Bearer ${await getToken()}`,
       },
